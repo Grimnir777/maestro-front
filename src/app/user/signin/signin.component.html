@@ -1,0 +1,31 @@
+<form [formGroup]="form"> 
+  <label>
+    Name
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Lastname
+    <input type="text" formControlName="lastname">
+  </label>
+  <label>
+    Pseudo
+    <input type="text" formControlName="pseudo">
+  </label>
+  <label>
+    Email
+    <input type="text" formControlName="email">
+  </label>
+  <label>
+    Confirm email
+    <input type="text" formControlName="confirmEmail">
+  </label>
+  <label>
+    Password
+    <input type="text" formControlName="password">
+  </label>
+  <label>
+    Confirm password
+    <input type="text" formControlName="confirmPassword">
+  </label>
+  <button mat-raised-button color="primary">Submit</button>
+</form>
