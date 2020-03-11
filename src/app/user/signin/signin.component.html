@@ -1,31 +1,31 @@
 <form [formGroup]="form"> 
-  <label>
-    Name
-    <input type="text" formControlName="name">
-  </label>
-  <label>
-    Lastname
-    <input type="text" formControlName="lastname">
-  </label>
-  <label>
-    Pseudo
-    <input type="text" formControlName="pseudo">
-  </label>
-  <label>
-    Email
-    <input type="text" formControlName="email">
-  </label>
-  <label>
-    Confirm email
-    <input type="text" formControlName="confirmEmail">
-  </label>
-  <label>
-    Password
-    <input type="text" formControlName="password">
-  </label>
-  <label>
-    Confirm password
-    <input type="text" formControlName="confirmPassword">
-  </label>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" formControlName="name" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lastname</mat-label>
+    <input matInput type="text" formControlName="lastname" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Pseudo</mat-label>
+    <input matInput type="text" formControlName="pseudo" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="text" formControlName="email" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Confirm email</mat-label>
+    <input matInput type="text" formControlName="confirmEmail" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Confirm password</mat-label>
+    <input matInput type="password" formControlName="confirmPassword" autocomplete="off">
+  </mat-form-field>
   <button mat-raised-button color="primary">Submit</button>
 </form>

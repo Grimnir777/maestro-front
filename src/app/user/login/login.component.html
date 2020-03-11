@@ -1,11 +1,11 @@
 <form [formGroup]="form"> 
-  <label>
-    Email
-    <input type="text" formControlName="email">
-  </label>
-  <label>
-    Password
-    <input type="text" formControlName="password">
-  </label>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput type="text" formControlName="email" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" autocomplete="off">
+  </mat-form-field>
   <button mat-raised-button color="primary">Submit</button>
 </form>

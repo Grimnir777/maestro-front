@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-partition-upload',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partition-upload.component.scss']
 })
 export class PartitionUploadComponent implements OnInit {
-
+  public form: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
   constructor() { }
 
   ngOnInit(): void {

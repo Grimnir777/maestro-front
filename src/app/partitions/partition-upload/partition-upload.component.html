@@ -1,1 +1,11 @@
-<p>partition-upload works!</p>
+<form [formGroup]="form"> 
+  <label>
+    Titre
+    <input type="text" formControlName="title">
+  </label>
+  <label>
+    Auteur
+    <input type="text" formControlName="author">
+  </label>
+  <button mat-raised-button color="primary">Submit</button>
+</form>

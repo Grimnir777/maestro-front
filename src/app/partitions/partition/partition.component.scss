@@ -1,0 +1,30 @@
+h1 {
+    text-align: center;
+}
+.infos {
+    
+    h3 {
+        display: inline;
+        margin-left: 2rem;
+    }
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+.body {
+    margin: 1rem;
+    display: flex;
+    .preview {
+        pdf-viewer {
+            display: block;
+            margin: 1rem;
+        }
+    }
+    .comments {
+        h1 {
+            text-align: center;
+        }
+    }
+}

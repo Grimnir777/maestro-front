@@ -1,1 +1,22 @@
-<p>partition works!</p>
+<div class="infos">
+    <h1>Titre auteur</h1>
+    <h3>Par : </h3>
+    <h3>Difficulté : </h3>
+    <h3>Instrument : </h3>
+</div>
+
+<div class="body">
+  <div class="preview">
+    <ng-container *ngIf="pdfSrc">
+      <pdf-viewer [src]="pdfSrc" [render-text]="true" [zoom]="0.5"></pdf-viewer>
+    </ng-container>
+    <ng-container *ngIf="!pdfSrc">
+      <p>No preview file</p>
+    </ng-container>
+  </div>
+  <div class="comments">
+    <h1>Commentaires</h1>
+  </div>
+</div>
+
+
