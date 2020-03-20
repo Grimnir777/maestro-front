@@ -12,13 +12,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogComponent } from './partition-upload/dialog/dialog.component'
+import { UploadService } from './partition-upload/upload.service';
 
 @NgModule({
   declarations: [
     ListPartitionsComponent,
     PartitionComponent,
     TicketComponent,
-    PartitionUploadComponent
+    PartitionUploadComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +37,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatDialogModule,
+    MatListModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule
+  ],
+  entryComponents: [DialogComponent],
+  providers: [UploadService],
 })
 export class PartitionsModule { }

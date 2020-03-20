@@ -13,8 +13,8 @@ const routes: Routes = [
   { path:'signin', component: SigninComponent},
   { path:'settings', component: SettingsComponent},
   { path:'partitions', component: ListPartitionsComponent},
-  { path:'partitions/:id', component: PartitionComponent},
   { path:'partitions/upload', component: PartitionUploadComponent},
+  { path:'partitions/:id', component: PartitionComponent},
   { path: '**',
     redirectTo: '/partitions',
     pathMatch: 'full'

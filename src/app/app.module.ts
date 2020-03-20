@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserModule } from './user/user.module';
 import { PartitionsModule } from './partitions/partitions.module';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +23,8 @@ import { PartitionsModule } from './partitions/partitions.module';
     PartitionsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

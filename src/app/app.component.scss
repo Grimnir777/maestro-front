@@ -1,9 +1,35 @@
-.example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #eee;
+.home {
+  height: 100%;
+  mat-toolbar {
+    margin: 0;
+    height: 10%;
+    mat-toolbar-row {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
+  .example-container {
+
+    height: 90%;
+    min-height: 90%;
+    margin: 0;
+    background: #eee;
+    mat-sidenav {
+      .maestro-home {
+        text-decoration: none;
+        color: black;
+      }
+      width: 15%;
+      .title {
+        display: block;
+        margin: 1rem;
+        text-align: center;
+        img {
+          width: 60px;
+        }
+      }
+    }
+  }
+}
+
   

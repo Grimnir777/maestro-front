@@ -1,6 +1,25 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="home">
+  <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row>
+      <div class="buttons">
+        <a mat-button [routerLink]="'/signin'"> Créer un compte </a>
+        <a mat-button [routerLink]="'/login'"> Se connecter</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <div class="title">
+        <a [routerLink]="'/'" class="maestro-home">
+          <img src='../assets/maestro.png' alt="" srcset="">
+          <h1>Maestro</h1>
+        </a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
