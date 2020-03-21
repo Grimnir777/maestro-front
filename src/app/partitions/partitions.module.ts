@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogComponent } from './partition-upload/dialog/dialog.component'
 import { UploadService } from './partition-upload/upload.service';
 
 @NgModule({
@@ -26,8 +25,7 @@ import { UploadService } from './partition-upload/upload.service';
     ListPartitionsComponent,
     PartitionComponent,
     TicketComponent,
-    PartitionUploadComponent,
-    DialogComponent
+    PartitionUploadComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +43,6 @@ import { UploadService } from './partition-upload/upload.service';
     BrowserAnimationsModule,
     MatProgressBarModule
   ],
-  entryComponents: [DialogComponent],
   providers: [UploadService],
 })
 export class PartitionsModule { }

@@ -6,6 +6,7 @@ import { PartitionUploadComponent } from './partitions/partition-upload/partitio
 import { LoginComponent } from './user/login/login.component';
 import { SigninComponent } from './user/signin/signin.component';
 import { SettingsComponent } from './user/settings/settings.component';
+import { TicketComponent } from './partitions/ticket/ticket.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path:'partitions', component: ListPartitionsComponent},
   { path:'partitions/upload', component: PartitionUploadComponent},
   { path:'partitions/:id', component: PartitionComponent},
+  { path:'partitions/:id/new_ticket', component: TicketComponent},
   { path: '**',
     redirectTo: '/partitions',
     pathMatch: 'full'

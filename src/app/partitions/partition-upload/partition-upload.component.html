@@ -7,6 +7,51 @@
     Auteur
     <input type="text" formControlName="author">
   </label>
-  <button mat-raised-button (click)="openUploadDialog()">Upload</button>
-  <button mat-raised-button color="primary">Submit</button>
+  <label>
+    Difficulté
+    <input type="text" formControlName="difficulty">
+  </label>
+
+  <input
+    type="file"
+    #fileInput
+    style="display: none"
+    (change)="onFilesAdded()"
+    multiple/>
+  <div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+    <h1 mat-dialog-title>Upload Files</h1>
+    <div>
+      <button
+        [disabled]="uploading || uploadSuccessful"
+        mat-raised-button
+        color="primary"
+        class="add-files-btn"
+        (click)="addFiles()">
+        Add Files
+      </button>
+    </div>
+
+    <mat-dialog-content fxFlex>
+      <mat-list>
+        <mat-list-item *ngIf="file">
+          <h4 mat-line>{{file.name}}</h4>
+          <mat-progress-bar
+            *ngIf="progress"
+            mode="determinate"
+            [value]="progress | async"
+          ></mat-progress-bar>
+        </mat-list-item>
+      </mat-list>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!form.valid"
+        (click)="submitPartition()">
+        Upload
+      </button>
+    </mat-dialog-actions>
+  </div>
 </form>

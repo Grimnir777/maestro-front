@@ -1,11 +1,31 @@
 .home {
   height: 100%;
   mat-toolbar {
-    margin: 0;
-    height: 10%;
-    mat-toolbar-row {
+    height: auto;
+  }
+  .buttons {
+    
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+  .homeButton {
+    display: inline-block;
+  }
+
+    .maestro-home {
       display: flex;
-      justify-content: flex-end;
+      text-decoration: none;
+      color: white;
+      .title,.titleImg {
+        align-self: center;
+        img {
+          width: 55px;
+        }
+      }
+    }
+
+    .button {
+      align-self: center;
     }
   }
   .example-container {

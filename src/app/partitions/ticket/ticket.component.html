@@ -1,1 +1,17 @@
-<p>ticket works!</p>
+<form [formGroup]="form"> 
+  <mat-form-field>
+    <mat-label>Titre</mat-label>
+    <input matInput type="text" formControlName="title" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Commentaire</mat-label>
+    <textarea matInput placeholder="Ex. La partition n'est pas la bonne" maxlength="400" formControlName="comment"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="submitTicket()">Soumettre le ticket</button>
+</form>
+
+
+<div class="infos" *ngIf="partition">
+  <h1>{{partition.title}} - {{partition.author}}</h1>
+  <h3>Difficulté : {{partition.difficulty}} </h3>
+</div>

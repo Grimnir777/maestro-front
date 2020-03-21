@@ -1,8 +1,15 @@
-<div class="infos">
-    <h1>Titre auteur</h1>
-    <h3>Par : </h3>
-    <h3>Difficulté : </h3>
-    <h3>Instrument : </h3>
+<div class="infos" *ngIf="partition">
+    <h1>{{partition.title}} - {{partition.author}}</h1>
+    <h3>Difficulté : {{partition.difficulty}} </h3>
+    <!-- <div *ngFor="instrument of partition.instruments">
+      <h3>Instrument : {{instrument}} </h3>
+    </div> -->
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="newTicket()">
+      Nouveau ticket
+    </button>
 </div>
 
 <div class="body">

@@ -1,30 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import { PartitionsService } from '../services/partitions/partitions.service';
+import { Partition } from 'src/app/models/partition.model';
+import { Router } from '@angular/router';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-];
 @Component({
   selector: 'app-list-partitions',
   templateUrl: './list-partitions.component.html',
   styleUrls: ['./list-partitions.component.scss']
 })
-export class ListPartitionsComponent {
+export class ListPartitionsComponent implements OnInit {
+  public partitions: Array<Partition> = [];
+  public displayedColumns: string[] = ['title', 'author', 'difficulty', 'instruments'];
+  public dataSource: MatTableDataSource<Partition>;
+  public offset = 0;
+  public pageSize = 10;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  constructor(
+    private partitionsService: PartitionsService,
+    private router: Router) {}
 
-  applyFilter(event: Event) {
+  public ngOnInit() {
+    this.refreshData();
+  }
+
+  private refreshData() {
+    this.partitionsService.getPartitions().subscribe( (partitions: Array<Partition>) => {
+      this.partitions = partitions;
+      this.dataSource = new MatTableDataSource(partitions);
+    });
+  }
+
+  public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  public navigateTo(row) {
+    this.router.navigate(['/partitions/' + row._id]);
   }
 
 }
