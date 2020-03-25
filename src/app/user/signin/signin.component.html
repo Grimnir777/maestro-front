@@ -1,31 +1,33 @@
-<form [formGroup]="form"> 
-  <mat-form-field>
-    <mat-label>Prénom</mat-label>
-    <input matInput type="text" formControlName="name" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Nom</mat-label>
-    <input matInput type="text" formControlName="lastname" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Pseudo</mat-label>
-    <input matInput type="text" formControlName="pseudo" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput type="text" formControlName="email" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Confirmer email</mat-label>
-    <input matInput type="text" formControlName="confirmEmail" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Mot de passe</mat-label>
-    <input matInput type="password" formControlName="password" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Confirmer mot de passe</mat-label>
-    <input matInput type="password" formControlName="confirmPassword" autocomplete="off">
-  </mat-form-field>
-  <button mat-raised-button color="primary">Créer un compte</button>
-</form>
+<div class="formulaire">
+  <form [formGroup]="form"> 
+    <mat-form-field>
+      <mat-label>Prénom</mat-label>
+      <input matInput type="text" formControlName="name" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput type="text" formControlName="lastname" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Pseudo</mat-label>
+      <input matInput type="text" formControlName="pseudo" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Confirmer email</mat-label>
+      <input matInput type="text" formControlName="confirmEmail" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Confirmer mot de passe</mat-label>
+      <input matInput type="password" formControlName="confirmPassword" autocomplete="off">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Créer un compte</button>
+  </form>
+</div>

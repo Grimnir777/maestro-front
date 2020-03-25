@@ -1,0 +1,39 @@
+mat-tab-group {
+  background-color: white;
+  height: 95%;
+}
+
+.tab1 {
+  background-color: white;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem auto;
+    width: 50%;
+    button {
+      margin: 0 auto;
+      width: 25%;
+    }
+  }
+}
+.tab2 {
+  background-color: white;
+  table {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  .searchBar {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    .mat-form-field {
+      font-size: 14px;
+      width: 80%;
+    }
+  }
+  .row-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+  }
+}

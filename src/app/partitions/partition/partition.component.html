@@ -1,29 +1,44 @@
-<div class="infos" *ngIf="partition">
-    <h1>{{partition.title}} - {{partition.author}}</h1>
-    <h3>Difficulté : {{partition.difficulty}} </h3>
-    <!-- <div *ngFor="instrument of partition.instruments">
-      <h3>Instrument : {{instrument}} </h3>
-    </div> -->
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="newTicket()">
-      Nouveau ticket
-    </button>
-</div>
+<!-- <img src="../../../assets/music-bg2.jpg" id="bg" alt=""> -->
+<div class="all">
+  <div class="first">
+    <div class="album">
+      <div class="albumImg">
+        <img
+          src="http://www.mrvinyl.co.za/wp-content/uploads/2014/08/acdc-black-ice.jpg"
+          alt=""
+        />
 
-<div class="body">
-  <div class="preview">
-    <ng-container *ngIf="pdfSrc">
-      <pdf-viewer [src]="pdfSrc" [render-text]="true" [zoom]="0.5"></pdf-viewer>
-    </ng-container>
-    <ng-container *ngIf="!pdfSrc">
-      <p>No preview file</p>
-    </ng-container>
+      </div>
+      <div class="titleInfos">
+        <h1>{{partition.title}}</h1>
+        <h3>{{partition.author}}</h3>
+        <h3>{{partition.difficulty}}</h3>
+      </div>
+      <div class="ticket">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="newTicket()">
+          Nouveau ticket
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="comments">
-    <h1>Commentaires</h1>
+  <div class="second">
+    <div class="pdf">
+      <ng-container *ngIf="pdfSrc" >
+        <pdf-viewer class="pdf-container" [src]="pdfSrc" [render-text]="true" [zoom]="0.5"></pdf-viewer>
+      </ng-container>
+      <ng-container *ngIf="!pdfSrc">
+        <div class="pdf-container">
+          <h1>No preview file</h1>
+        </div>
+      </ng-container>
+    </div>
+    <div class="comments">
+      <h1>Commentaires</h1>
+    </div>
+
   </div>
+
 </div>
-
-

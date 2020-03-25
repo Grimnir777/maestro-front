@@ -1,0 +1,73 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 50%;
+  button {
+    margin: 0 auto;
+    width: 40%;
+  }
+}
+  
+
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+.all {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  color: black;
+  margin: 2rem;
+  .first,.second {
+    
+    margin: 1rem;
+  }
+  .first {
+    background-color: white;
+    width: 10%;
+    .album {
+      padding: 1rem;
+      .albumImg {
+        img {
+          margin: 0 auto;
+          display: block;
+          max-width: 90%;
+          margin-bottom: 1rem;
+        }
+      }
+      .titleInfos {
+        margin: 0 auto;
+        display: block;
+        max-width: 90%;
+      }
+      .ticket {
+        text-align: center;
+      }
+    }
+  }
+  .second {
+    width: 40%;
+    .formulaire {
+      background-color: white;
+      margin-bottom: 1rem;
+      text-align: center;
+      padding: 1rem;
+      min-height: 6rem;
+    }
+  }
+}
+

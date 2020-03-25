@@ -36,6 +36,7 @@ export class ListPartitionsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // TODO Page ticket pour visualiser l'état
   public navigateTo(row) {
     this.router.navigate(['/partitions/' + row._id]);
   }

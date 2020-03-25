@@ -1,17 +1,36 @@
-<form [formGroup]="form"> 
-  <mat-form-field>
-    <mat-label>Titre</mat-label>
-    <input matInput type="text" formControlName="title" autocomplete="off">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Commentaire</mat-label>
-    <textarea matInput placeholder="Ex. La partition n'est pas la bonne" maxlength="400" formControlName="comment"></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="submitTicket()">Soumettre le ticket</button>
-</form>
+<!-- <img src="../../../assets/music-bg2.jpg" id="bg" alt=""> -->
+<div class="all">
+  <div class="first">
+    <div class="album">
+      <div class="albumImg">
+        <img
+          src="http://www.mrvinyl.co.za/wp-content/uploads/2014/08/acdc-black-ice.jpg"
+          alt=""
+        />
 
+      </div>
+      <div class="titleInfos">
+        <h1>{{partition.title}}</h1>
+        <h3>{{partition.author}}</h3>
+        <h3>{{partition.difficulty}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="second">
+    <div class="formulaire">
+      <form [formGroup]="form"> 
+        <mat-form-field>
+          <mat-label>Titre</mat-label>
+          <input matInput type="text" formControlName="title" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Commentaire</mat-label>
+          <textarea matInput placeholder="Ex. La partition n'est pas la bonne" maxlength="400" formControlName="comment"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="submitTicket()">Soumettre le ticket</button>
+      </form>
+    </div>
 
-<div class="infos" *ngIf="partition">
-  <h1>{{partition.title}} - {{partition.author}}</h1>
-  <h3>Difficulté : {{partition.difficulty}} </h3>
+  </div>
+
 </div>
