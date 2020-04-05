@@ -1,57 +1,61 @@
-<form [formGroup]="form"> 
-  <label>
-    Titre
-    <input type="text" formControlName="title">
-  </label>
-  <label>
-    Auteur
-    <input type="text" formControlName="author">
-  </label>
-  <label>
-    Difficulté
-    <input type="text" formControlName="difficulty">
-  </label>
-
-  <input
-    type="file"
-    #fileInput
-    style="display: none"
-    (change)="onFilesAdded()"
-    multiple/>
-  <div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
-    <h1 mat-dialog-title>Upload Files</h1>
-    <div>
-      <button
-        [disabled]="uploading || uploadSuccessful"
-        mat-raised-button
-        color="primary"
-        class="add-files-btn"
-        (click)="addFiles()">
-        Add Files
-      </button>
+<div class="upload">
+  <form [formGroup]="form"> 
+    <h1 mat-dialog-title>Informations</h1>
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input matInput type="text" formControlName="title" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Auteur</mat-label>
+      <input matInput type="text" formControlName="author" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Difficulté</mat-label>
+      <input matInput type="text" formControlName="difficulty" autocomplete="off">
+    </mat-form-field>
+  
+    <input
+      type="file"
+      #fileInput
+      style="display: none"
+      (change)="onFilesAdded()"
+      multiple/>
+    <div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+      <h1 mat-dialog-title>Upload Files</h1>
+      <div>
+        <button
+          [disabled]="uploading || uploadSuccessful"
+          mat-raised-button
+          color="primary"
+          class="add-files-btn"
+          (click)="addFiles()">
+          Add Files
+        </button>
+      </div>
+  
+      <mat-dialog-content fxFlex>
+        <mat-list>
+          <mat-list-item *ngIf="file">
+            <h4 mat-line>{{file.name}}</h4>
+            <mat-progress-bar
+              *ngIf="progress"
+              mode="determinate"
+              [value]="progress | async"
+            ></mat-progress-bar>
+          </mat-list-item>
+        </mat-list>
+      </mat-dialog-content>
+  
+      <mat-dialog-actions class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!form.valid"
+          (click)="submitPartition()">
+          Upload
+        </button>
+      </mat-dialog-actions>
     </div>
+  </form>
 
-    <mat-dialog-content fxFlex>
-      <mat-list>
-        <mat-list-item *ngIf="file">
-          <h4 mat-line>{{file.name}}</h4>
-          <mat-progress-bar
-            *ngIf="progress"
-            mode="determinate"
-            [value]="progress | async"
-          ></mat-progress-bar>
-        </mat-list-item>
-      </mat-list>
-    </mat-dialog-content>
-
-    <mat-dialog-actions class="actions">
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="!form.valid"
-        (click)="submitPartition()">
-        Upload
-      </button>
-    </mat-dialog-actions>
-  </div>
-</form>
+</div>

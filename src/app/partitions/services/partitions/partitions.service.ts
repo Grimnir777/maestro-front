@@ -28,6 +28,13 @@ export class PartitionsService {
   }
 
   /**
+   * putPartition
+   */
+  public putPartition(partition: Partition) {
+    return this.http.put<object>(url, partition);
+  }
+
+  /**
    * getPartition
    */
   public getPartition(id: string) {

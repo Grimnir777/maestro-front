@@ -1,4 +1,3 @@
-<!-- <img src="../../../assets/music-bg2.jpg" id="bg" alt=""> -->
 <div class="all">
   <div class="first">
     <div class="album">
@@ -9,7 +8,7 @@
         />
 
       </div>
-      <div class="titleInfos">
+      <div class="titleInfos" *ngIf="partition">
         <h1>{{partition.title}}</h1>
         <h3>{{partition.author}}</h3>
         <h3>{{partition.difficulty}}</h3>
@@ -35,8 +34,17 @@
         </div>
       </ng-container>
     </div>
-    <div class="comments">
+    <div class="comments" *ngIf="partition">
       <h1>Commentaires</h1>
+      <div class="commentCard" *ngFor="let comment of partition.comments" >
+        <p class="pseudo">{{comment.pseudoUser}}</p>
+        <p class="content">{{comment.text}}</p>
+      </div>
+      <mat-form-field>
+        <mat-label>Commentaire</mat-label>
+        <textarea matInput maxlength="400" [formControl]="comment"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!comment.valid" (click)="submitComment()">Envoyer le commentaire</button>
     </div>
 
   </div>

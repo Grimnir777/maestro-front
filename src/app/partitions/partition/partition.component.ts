@@ -3,6 +3,8 @@ import { Partition } from 'src/app/models/partition.model';
 import { PartitionsService } from '../services/partitions/partitions.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeResourceUrl } from '@angular/platform-browser';
+import { FormControl, FormBuilder } from '@angular/forms';
+import { Commentaire } from 'src/app/models/commentaire.model';
 
 @Component({
   selector: 'app-partition',
@@ -13,10 +15,13 @@ export class PartitionComponent implements OnInit {
   public partition: Partition;
   private pid: string;
   public pdfSrc: SafeResourceUrl;
+  public comment: FormControl = this.fb.control('');
+
   constructor(
     private partitionService: PartitionsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) { }
 
   public ngOnInit(): void {
@@ -34,6 +39,22 @@ export class PartitionComponent implements OnInit {
 
   public newTicket(): void {
     this.router.navigate(['/partitions/' + this.pid + '/new_ticket']);
+  }
+
+  public submitComment() {
+    const comment: Commentaire =  {
+      text: this.comment.value,
+      idUser: '12',
+      pseudoUser: 'Thibaud',
+      date: new Date()
+    };
+    const partitionToUpdate = this.partition;
+    partitionToUpdate.comments.push(comment);
+    this.partitionService.putPartition(this.partition).subscribe((result) => {
+      this.partition = partitionToUpdate;
+      this.comment.reset();
+    });
+
   }
 
 }
