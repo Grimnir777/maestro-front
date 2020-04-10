@@ -50,7 +50,7 @@ export class PartitionComponent implements OnInit {
     };
     const partitionToUpdate = this.partition;
     partitionToUpdate.comments.push(comment);
-    this.partitionService.putPartition(this.partition).subscribe((result) => {
+    this.partitionService.putPartition(partitionToUpdate).subscribe((result) => {
       this.partition = partitionToUpdate;
       this.comment.reset();
     });

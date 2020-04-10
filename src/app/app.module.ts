@@ -10,6 +10,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserModule } from './user/user.module';
 import { PartitionsModule } from './partitions/partitions.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AuthInterceptor } from 'src/core/interceptors/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSidenavModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

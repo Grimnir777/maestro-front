@@ -32,7 +32,6 @@ export class TicketComponent implements OnInit {
   public ngOnInit() {
     this.pid = this.route.snapshot.params.id;
     this.partitionService.getPartition(this.pid).subscribe( (partition: Partition) => {
-      console.log(partition);
       this.partition = partition;
     });
   }

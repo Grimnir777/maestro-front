@@ -7,16 +7,17 @@ import { LoginComponent } from './user/login/login.component';
 import { SigninComponent } from './user/signin/signin.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { TicketComponent } from './partitions/ticket/ticket.component';
+import { AuthGuard } from 'src/core/guards/auth.guard';
 
 
 const routes: Routes = [
-  { path:'login', component: LoginComponent},
-  { path:'signin', component: SigninComponent},
-  { path:'settings', component: SettingsComponent},
-  { path:'partitions', component: ListPartitionsComponent},
-  { path:'partitions/upload', component: PartitionUploadComponent},
-  { path:'partitions/:id', component: PartitionComponent},
-  { path:'partitions/:id/new_ticket', component: TicketComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'signin', component: SigninComponent},
+  { path: 'settings', component: SettingsComponent , canActivate: [AuthGuard] },
+  { path: 'partitions', component: ListPartitionsComponent},
+  { path: 'partitions/upload', component: PartitionUploadComponent, canActivate: [AuthGuard] },
+  { path: 'partitions/:id', component: PartitionComponent},
+  { path: 'partitions/:id/new_ticket', component: TicketComponent, canActivate: [AuthGuard] },
   { path: '**',
     redirectTo: '/partitions',
     pathMatch: 'full'

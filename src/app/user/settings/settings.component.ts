@@ -40,7 +40,6 @@ export class SettingsComponent implements OnInit {
 
   private refreshData() {
     this.ticketsServices.getTickets().subscribe((tickets: Array<Ticket>) => {
-      console.log(tickets);
       this.tickets = tickets;
       this.dataSource = new MatTableDataSource(tickets);
     });

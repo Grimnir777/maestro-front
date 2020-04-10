@@ -37,7 +37,7 @@
     <div class="comments" *ngIf="partition">
       <h1>Commentaires</h1>
       <div class="commentCard" *ngFor="let comment of partition.comments" >
-        <p class="pseudo">{{comment.pseudoUser}}</p>
+        <p class="pseudo">{{comment.pseudoUser}} - le {{comment.date | date:'dd/MM/yyyy'}}</p>
         <p class="content">{{comment.text}}</p>
       </div>
       <mat-form-field>
