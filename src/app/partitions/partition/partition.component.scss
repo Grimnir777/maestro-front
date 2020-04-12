@@ -25,7 +25,7 @@
   }
   .first {
     background-color: white;
-    width: 10%;
+    width: 20%;
     .album {
       padding: 1rem;
       .albumImg {
@@ -43,6 +43,11 @@
       }
       .ticket {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        button {
+          margin-bottom: 0.7rem;
+        }
       }
     }
   }

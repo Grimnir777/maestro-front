@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UploadService } from './upload.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Partition } from 'src/app/models/partition.model';
@@ -29,10 +29,6 @@ export class PartitionUploadComponent {
   @ViewChild('fileInput') fileInput;
   public file: File;
 
-  progress;
-  uploading = false;
-  uploadSuccessful = false;
-
   public addFiles() {
     this.fileInput.nativeElement.click();
   }
@@ -43,16 +39,19 @@ export class PartitionUploadComponent {
   }
 
   public submitPartition() {
-    this.uploading = true;
-    this.progress = this.uploadService.upload(this.file);
-    this.progress.subscribe( (fileReturn) => {
-      console.log(fileReturn);
-      const partition: Partition = this.form.value;
-      partition.linkPart = fileReturn.id;
-      this.partitionsService.postPartition(partition).subscribe( (result) => {
-        console.log(result);
-        this.router.navigate(['/partitions/' + result['_id']]);
-      });
+    this.uploadService.uploadEasy(this.file).subscribe((result)=> {
+      console.log(result);
+      if (result['id']) {
+        const partition: Partition = this.form.value;
+        partition.linkPart = result['id'];
+        this.partitionsService.postPartition(partition).subscribe( (resPartition) => {
+          console.log(resPartition);
+          this.router.navigate(['/partitions/' + resPartition['_id']]);
+        });
+      } else {
+        console.log('error upload');
+
+      }
     });
   }
 

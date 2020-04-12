@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Partition } from 'src/app/models/partition.model';
-import { Ticket } from 'src/app/models/ticket.model';
+import { Observable } from 'rxjs';
 
 const url = 'http://localhost:3000/partitions/';
 const fileUrl = 'http://localhost:3000/partition-file/';
@@ -45,10 +45,7 @@ export class PartitionsService {
    * getFileUrl
    */
   public getFileUrl(id: string) {
-    const res = this.http.get<any>(fileUrl + id);
-    console.log(res);
-    return res;
-    // return this.http.get<any>(fileUrl + id);
+    return this.http.get<any>(fileUrl + id);
   }
 
   /**
@@ -56,5 +53,14 @@ export class PartitionsService {
    */
   public getFile(id: string) {
     return this.http.get(fileUrl + id , {responseType: 'blob'});
+  }
+
+  /**
+   * getFile
+   */
+  public downloadFile(partitionUrl: string): Observable<Blob> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Accept', 'application/pdf');
+    return this.http.get(partitionUrl, { headers, responseType: 'blob' });
   }
 }
